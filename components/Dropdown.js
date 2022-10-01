@@ -5,26 +5,35 @@ import {
   Menu,
   Button,
   MenuDivider,
+  Spinner,
+  IconButton,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useState, useEffect } from "react";
+import Axios from "axios";
+import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 
-function Dropdown() {
+function Dropdown(props) {
+  const { data } = props;
+  // console.log(data);
+
   return (
-    <Menu>
-      <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-        Actions
-      </MenuButton>
-      <MenuList>
-        <MenuItem className="h-8">Download</MenuItem>
-        <MenuDivider className="bg-blue " />
-        <MenuItem className="h-8">Create a Copy</MenuItem>
-        <MenuDivider />
-        <MenuItem className="h-8">Mark as Draft</MenuItem>
-        <MenuDivider />
-        <MenuItem className="h-8">Delete</MenuItem>
-        <MenuDivider />
-        <MenuItem className="h-8">Attend a Workshop</MenuItem>
-        <MenuDivider />
+    <Menu className="bg-gray">
+      <MenuButton
+        as={IconButton}
+        aria-label="Options"
+        icon={<HamburgerIcon />}
+        variant="outline"
+        size="lg"
+        className="h-10"
+      />
+      <MenuList className="bg-gray-light pl-8 pr-5">
+        {data.map((value, index) => {
+          return (
+            <MenuItem key={index} className="h-8">
+              {value}
+            </MenuItem>
+          );
+        })}
       </MenuList>
     </Menu>
   );

@@ -17,14 +17,14 @@ function SearchBar() {
     <Container color="white">
       <InputGroup>
         <Input
-          className="p-2 w-5xl bg-gray-light"
+          className="p-2 w-5xl bg-gray-light "
           type="text"
           placeholder="Search Here"
           color="black"
         />
         <InputRightElement>
           <IconButton
-            className="h-10 bg-blue  w-8 "
+            className="h-10 bg-blue  w-8 mr-3"
             size="md"
             colorScheme="blackAlpha"
             aria-label="Get request"

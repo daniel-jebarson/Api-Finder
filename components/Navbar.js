@@ -1,7 +1,8 @@
 import { Container } from "@chakra-ui/react";
 import SearchBar from "./SearchBar";
 import Dropdown from "./Dropdown";
-function Navbar() {
+function Navbar(props) {
+  const { data } = props;
   return (
     <Container className="flex justify-around flex-row flex-wrap">
       <nav>hi</nav>
@@ -9,7 +10,7 @@ function Navbar() {
         <SearchBar />
       </nav>
       <nav>
-        <Dropdown />
+        <Dropdown data={data} />
       </nav>
     </Container>
   );
