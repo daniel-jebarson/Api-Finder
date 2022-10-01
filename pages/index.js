@@ -9,14 +9,28 @@ import CardGroup from "../components/CardGroup";
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [cardData, setCardData] = useState([]);
 
   useEffect(() => {
     setLoading(true);
-    Axios.get("https://api.publicapis.org/categories").then((res) => {
-      setData(res.data.categories);
-      // console.log(res.data.categories);
-      setLoading(false);
-    });
+    Axios.get("https://api.publicapis.org/categories")
+      .then((res) => {
+        setData(res.data.categories);
+        // console.log(res.data.categories);
+        // setLoading(false);
+      })
+      .catch((err) => {
+        console.log("Error occured!");
+        return;
+      });
+    Axios.get("https://api.publicapis.org/entries")
+      .then((res) => {
+        setCardData(res.data.entries);
+      })
+      .catch((err) => {
+        console.log("Error occured!");
+      });
+    setLoading(false);
   }, []);
 
   if (loading) {
@@ -45,7 +59,7 @@ export default function Home() {
           <Navbar data={data} />
           <br />
           {/* <Card /> */}
-          <CardGroup />
+          <CardGroup data={cardData} />
         </main>
       </div>
     );
