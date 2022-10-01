@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-
+import { Container } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
 export default function Home() {
   return (
     <div>
@@ -10,8 +11,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="text-3xl font-bold underline">
-        <h1>Hello world</h1>
+      <main>
+        <Navbar />
       </main>
     </div>
   );
