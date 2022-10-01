@@ -4,6 +4,8 @@ import { Container, Spinner } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import Card from "../components/Card";
+import CardGroup from "../components/CardGroup";
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -41,6 +43,9 @@ export default function Home() {
 
         <main>
           <Navbar data={data} />
+          <br />
+          {/* <Card /> */}
+          <CardGroup />
         </main>
       </div>
     );
