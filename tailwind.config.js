@@ -9,6 +9,7 @@ module.exports = {
       "gray-light": "#d3dce6",
       green: "#13ce66",
       blue: "#1fb6ff",
+      brown: "#726c5a",
     },
     colors: {
       blue: "#1fb6ff",
@@ -17,6 +18,7 @@ module.exports = {
       orange: "#ff7849",
       green: "#13ce66",
       yellow: "#ffc82c",
+      brown: "#726c5a",
       "gray-dark": "#273444",
       gray: "#8492a6",
       "gray-light": "#d3dce6",
