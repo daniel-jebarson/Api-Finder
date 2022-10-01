@@ -14,7 +14,7 @@ import { SearchIcon, Search2Icon } from "@chakra-ui/icons";
 
 function SearchBar() {
   return (
-    <Container color="white">
+    <Container color="white" className="mb-3">
       <InputGroup>
         <Input
           className="p-2 w-5xl bg-gray-light "
@@ -24,7 +24,7 @@ function SearchBar() {
         />
         <InputRightElement>
           <IconButton
-            className="h-10 bg-blue  w-8 mr-3"
+            className="h-10  bg-blue  w-10 "
             size="md"
             colorScheme="blackAlpha"
             aria-label="Get request"
