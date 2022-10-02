@@ -1,8 +1,14 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import styles from "../styles/Home.module.css";
-import { Container, Spinner } from "@chakra-ui/react";
-import Navbar from "../components/Navbar";
+import {
+  Container,
+  InputGroup,
+  InputRightElement,
+  Input,
+  IconButton,
+  Spinner,
+} from "@chakra-ui/react";
+import Dropdown from "../components/Dropdown";
+import { SearchIcon, Search2Icon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import CardGroup from "../components/CardGroup";
@@ -11,21 +17,17 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [cardData, setCardData] = useState([]);
   const [tempData, setTempData] = useState([]);
-  const router = useRouter();
-  const {
-    query: { searchTerm },
-  } = router;
+  const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
-    if (searchTerm != undefined) {
-      let term = searchTerm.replace("+", " ");
-      let match = [];
-      cardData.map((value, index) => {
-        if (value.Description.includes(term)) {
-          match.push(value);
-        }
-      });
-      setTempData(match);
-    }
+    let term = searchTerm.replace("+", " ");
+    let match = [];
+    cardData.map((value, index) => {
+      if (value.Description.includes(term)) {
+        match.push(value);
+      }
+    });
+    setTempData(match);
   }, [searchTerm]);
   useEffect(() => {
     setLoading(true);
@@ -71,7 +73,41 @@ export default function Home() {
         </Head>
 
         <main>
-          <Navbar data={data} />
+          <Container className="flex justify-around flex-row flex-wrap mt-3 shadow-md ">
+            <nav>
+              <h1 class="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-green to-blue text-clip text-blue">
+                Home
+              </h1>
+            </nav>
+            <nav>
+              <Container color="white" className="mb-3">
+                <InputGroup>
+                  <Input
+                    className="p-2 w-5xl bg-gray-light "
+                    type="text"
+                    placeholder="Search Here"
+                    color="black"
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                      // setInputQuery(e.target.value);
+                    }}
+                  />
+                  <InputRightElement>
+                    <IconButton
+                      className="h-10  bg-blue  w-10 "
+                      size="md"
+                      colorScheme="blackAlpha"
+                      aria-label="Get request"
+                      icon={<Search2Icon />}
+                    />
+                  </InputRightElement>
+                </InputGroup>
+              </Container>
+            </nav>
+            <nav>
+              <Dropdown data={data} />
+            </nav>
+          </Container>
           <br />
           {tempData.length == 0 ? (
             <div className="ml-96 text-lg font-bold  mt-60">
