@@ -35,14 +35,14 @@ function Category() {
 
   if (loading) {
     return (
-      <div className="ml-72">
+      <div className="text-center mt-20">
         Loading page...
         <Spinner
-          className="h-5 w-6"
+          className="h-5 w-5"
           thickness="4px"
           speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
+          emptyColor="white"
+          color="blue"
         />
       </div>
     );
