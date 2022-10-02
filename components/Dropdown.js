@@ -3,13 +3,9 @@ import {
   MenuList,
   MenuButton,
   Menu,
-  Button,
-  MenuDivider,
-  Spinner,
   IconButton,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
-import Axios from "axios";
+import Router from "next/router";
 import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 function Dropdown(props) {
@@ -29,7 +25,13 @@ function Dropdown(props) {
       <MenuList className="bg-gray-light pl-8 pr-5">
         {data.map((value, index) => {
           return (
-            <MenuItem key={index} className="h-8">
+            <MenuItem
+              onClick={() => {
+                Router.push(`/${value}`);
+              }}
+              key={index}
+              className="h-8"
+            >
               {value}
             </MenuItem>
           );

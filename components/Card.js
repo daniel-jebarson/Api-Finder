@@ -6,7 +6,6 @@ function Card(props) {
     <div
       onClick={() => {
         Router.push(data.Link);
-        console.log("Clicked " + data.Link);
       }}
       className="flex flex-col w-1/5 max-w-md rounded-lg p-2 min-h-fit border border-gray items-center hover:cursor-pointer my-1 transition-all animate-none [transition-duration:200ms] shadow-md hover:[transform:scale(1.075)] justify-center bg-gray-light"
     >
