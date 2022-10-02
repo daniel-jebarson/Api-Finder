@@ -1,4 +1,5 @@
 import React from "react";
+import Router from "next/router";
 import {
   InputGroup,
   InputRightElement,
@@ -13,6 +14,15 @@ import { useState } from "react";
 import { SearchIcon, Search2Icon } from "@chakra-ui/icons";
 
 function SearchBar() {
+  const [inputQuery, setInputQuery] = useState("");
+
+  const pusher = (searchTerm) => {
+    Router.push({
+      pathname: "/",
+      query: { searchTerm },
+    });
+  };
+
   return (
     <Container color="white" className="mb-3">
       <InputGroup>
@@ -21,6 +31,9 @@ function SearchBar() {
           type="text"
           placeholder="Search Here"
           color="black"
+          onChange={(e) => {
+            setInputQuery(e.target.value);
+          }}
         />
         <InputRightElement>
           <IconButton
@@ -28,6 +41,7 @@ function SearchBar() {
             size="md"
             colorScheme="blackAlpha"
             aria-label="Get request"
+            onClick={pusher(inputQuery)}
             icon={<Search2Icon />}
           />
         </InputRightElement>

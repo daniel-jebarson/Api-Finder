@@ -1,23 +1,37 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import { Container, Spinner } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
 import Axios from "axios";
-import Card from "../components/Card";
 import CardGroup from "../components/CardGroup";
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [cardData, setCardData] = useState([]);
-
+  const [tempData, setTempData] = useState([]);
+  const router = useRouter();
+  const {
+    query: { searchTerm },
+  } = router;
+  useEffect(() => {
+    if (searchTerm != undefined) {
+      let term = searchTerm.replace("+", " ");
+      let match = [];
+      cardData.map((value, index) => {
+        if (value.Description.includes(term)) {
+          match.push(value);
+        }
+      });
+      setTempData(match);
+    }
+  }, [searchTerm]);
   useEffect(() => {
     setLoading(true);
     Axios.get("https://api.publicapis.org/categories")
       .then((res) => {
         setData(res.data.categories);
-        // console.log(res.data.categories);
-        // setLoading(false);
       })
       .catch((err) => {
         console.log("Error occured!");
@@ -26,6 +40,7 @@ export default function Home() {
     Axios.get("https://api.publicapis.org/entries")
       .then((res) => {
         setCardData(res.data.entries);
+        setTempData(res.data.entries);
       })
       .catch((err) => {
         console.log("Error occured!");
@@ -58,8 +73,13 @@ export default function Home() {
         <main>
           <Navbar data={data} />
           <br />
-          {/* <Card /> */}
-          <CardGroup data={cardData} />
+          {tempData.length == 0 ? (
+            <div className="ml-96 text-lg font-bold  mt-60">
+              Sorry nothing found!
+            </div>
+          ) : (
+            <CardGroup data={tempData} />
+          )}
         </main>
       </div>
     );
