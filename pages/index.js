@@ -77,7 +77,7 @@ export default function Home() {
         <main>
           <Container className="flex justify-around flex-row flex-wrap mt-3 shadow-md z-50">
             <nav>
-              <h1 class="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-green to-blue text-clip text-blue">
+              <h1 class="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-green to-blue text-clip text-blue cursor-pointer">
                 API FINDER
               </h1>
             </nav>
