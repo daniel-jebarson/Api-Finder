@@ -8,7 +8,7 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import Dropdown from "../components/Dropdown";
-import { SearchIcon, Search2Icon } from "@chakra-ui/icons";
+import { Search2Icon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import CardGroup from "../components/CardGroup";
@@ -20,6 +20,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
+    setLoading(true);
     let term = searchTerm.replace("+", " ");
     let match = [];
     cardData.map((value, index) => {
@@ -28,6 +29,7 @@ export default function Home() {
       }
     });
     setTempData(match);
+    setLoading(false);
   }, [searchTerm]);
   useEffect(() => {
     setLoading(true);
@@ -43,23 +45,23 @@ export default function Home() {
       .then((res) => {
         setCardData(res.data.entries);
         setTempData(res.data.entries);
+        setLoading(false);
       })
       .catch((err) => {
         console.log("Error occured!");
       });
-    setLoading(false);
   }, []);
 
   if (loading) {
     return (
-      <div className="ml-72">
+      <div className="text-center mt-20">
         Loading page...
         <Spinner
-          className="h-5 w-6"
+          className="h-5 w-5"
           thickness="4px"
           speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
+          emptyColor="white"
+          color="blue"
         />
       </div>
     );
@@ -73,10 +75,10 @@ export default function Home() {
         </Head>
 
         <main>
-          <Container className="flex justify-around flex-row flex-wrap mt-3 shadow-md ">
+          <Container className="flex justify-around flex-row flex-wrap mt-3 shadow-md z-50">
             <nav>
               <h1 class="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-green to-blue text-clip text-blue">
-                Home
+                API FOUNDER
               </h1>
             </nav>
             <nav>
@@ -89,7 +91,6 @@ export default function Home() {
                     color="black"
                     onChange={(e) => {
                       setSearchTerm(e.target.value);
-                      // setInputQuery(e.target.value);
                     }}
                   />
                   <InputRightElement>

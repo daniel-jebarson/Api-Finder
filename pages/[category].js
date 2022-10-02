@@ -3,7 +3,7 @@ import Axios from "axios";
 import CardGroup from "../components/CardGroup";
 import { Spinner } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+
 function Category() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -11,7 +11,6 @@ function Category() {
   const router = useRouter();
 
   useEffect(() => {
-    // console.log(router.query.category);
     setLoading(true);
     if (!router.isReady) {
       return;
@@ -20,21 +19,16 @@ function Category() {
     setCategory(router.query.category);
     fetchFunction(router.query.category);
     console.log("This is" + router.query.category + "category");
-    // getRequest(category);
   }, [router.isReady]);
 
   async function fetchFunction(c) {
     try {
-      //   console.log(c);
-
       const response = await Axios.get(
         `https://api.publicapis.org/entries?category=${c}`
       );
       setLoading(false);
       setData(response.data.entries);
-      //   console.log(response.data.entries);
     } catch (err) {
-      //   throw err;
       console.log(err);
     }
   }

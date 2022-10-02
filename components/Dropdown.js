@@ -6,11 +6,10 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import Router from "next/router";
-import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 function Dropdown(props) {
   const { data } = props;
-  // console.log(data);
 
   return (
     <Menu className="bg-gray">
