@@ -1,22 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# <h1 align="center">API Finder</h1>
 
-## Getting Started
+<div align="center"><a  href="https://api-finder.vercel.app/">Website</a></div>
+<br>
 
-First, run the development server:
+*An website built with with NextJS and Chakra UI and TailwindCss to help the web developers find the respective API in specific category*
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Data's:** *Name • Description • Auth • Https •Cors •Category •Link*
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+***
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Deployment
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+API Finder is deployed at [Vercel](https://vercel.com/) and can be accessed by clicking [here](https://api-finder.vercel.app/)
+
+## Features
+
+- [ ] Genuine Information
+- [ ] Error free data
+- [ ] Fast and secure
+
+## License
+
+API Finder is an MIT Licensed web application.
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/jessej-samuel/spotipy/blob/master/LICENSE)
+
+## Support 
+
+> If you think that this website helped you in any way please give your support by giving star to the repo in github 😋
+
+> Suggestions are also welcome
 
 ## Learn More
 
@@ -32,3 +46,36 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Installing Guide
+
+First, install the npm packages and then run the development server:
+
+```bash
+npm install
+#then
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Screenshots
+
+- [x] HomePage
+
+![image](https://user-images.githubusercontent.com/88134306/193468174-a1d4d82c-8d59-4200-b992-13f7631ecd83.png)
+
+- [x] Filter by Description
+
+![image](https://user-images.githubusercontent.com/88134306/193468196-d1640f28-5f7a-4848-aeba-a8e4b4b03a63.png)
+
+- [x] DropDown Menu for Categories
+
+![image](https://user-images.githubusercontent.com/88134306/193468237-41b53c5e-a213-467b-bf08-b54462625162.png)
+
+- [x] Filter by Category
+
+![image](https://user-images.githubusercontent.com/88134306/193468274-09cda737-5542-496f-8464-04e1c82a26ba.png)
+
+
+
+
