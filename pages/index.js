@@ -85,7 +85,7 @@ export default function Home() {
               <Container color="white" className="mb-3">
                 <InputGroup>
                   <Input
-                    className="p-2 w-5xl bg-gray-light "
+                    className="p-2 lg:w-5xl w-[400px] max-w-full  bg-gray-light "
                     type="text"
                     placeholder="Search Here"
                     color="black"
