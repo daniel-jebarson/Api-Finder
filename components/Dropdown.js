@@ -21,7 +21,7 @@ function Dropdown(props) {
         size="lg"
         className="h-10"
       />
-      <MenuList className="bg-gray-light pl-8 pr-5">
+      <MenuList className="bg-gray-light  pl-8 pr-5">
         {data.map((value, index) => {
           return (
             <MenuItem
@@ -29,7 +29,7 @@ function Dropdown(props) {
                 Router.push(`/${value}`);
               }}
               key={index}
-              className="h-8"
+              className="h-8 dark:text-black"
             >
               {value}
             </MenuItem>
