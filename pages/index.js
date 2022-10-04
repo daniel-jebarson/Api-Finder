@@ -7,6 +7,7 @@ import {
   IconButton,
   Spinner,
 } from "@chakra-ui/react";
+import ThemeSwitcher from "../components/ThemeSwitcher";
 import Dropdown from "../components/Dropdown";
 import { Search2Icon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
@@ -75,7 +76,8 @@ export default function Home() {
         </Head>
 
         <main>
-          <Container className="flex justify-around flex-row flex-wrap mt-3 shadow-md z-50">
+          <ThemeSwitcher />
+          <Container className="flex justify-around flex-row flex-wrap mt-3 shadow-md z-50 ">
             <nav>
               <h1 class="font-black text-transparent text-2xl  bg-clip-text  bg-gradient-to-r from-green to-blue   cursor-pointer">
                 API FINDER
@@ -85,7 +87,7 @@ export default function Home() {
               <Container color="white" className="mb-3">
                 <InputGroup>
                   <Input
-                    className="p-2 lg:w-5xl w-[400px] max-w-full  bg-gray-light "
+                    className="p-2 lg:w-5xl w-[400px] max-w-full   bg-gray-light "
                     type="text"
                     placeholder="Search Here"
                     color="black"

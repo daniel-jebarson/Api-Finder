@@ -7,7 +7,7 @@ function Card(props) {
       onClick={() => {
         Router.push(data.Link);
       }}
-      className="flex flex-col w-64  rounded-lg p-2 min-h-fit border border-gray items-center hover:cursor-pointer my-1 transition-all animate-none [transition-duration:200ms] shadow-md hover:[transform:scale(1.075)] justify-center bg-gray-light "
+      className="flex flex-col w-64  rounded-lg p-2 min-h-fit border border-gray items-center hover:cursor-pointer my-1 transition-all animate-none [transition-duration:200ms] shadow-md hover:[transform:scale(1.075)] justify-center bg-gray-light dark:text-black"
     >
       <h1 className="text-xl font-semibold p-1.5 text-center">{data.API}</h1>
 
